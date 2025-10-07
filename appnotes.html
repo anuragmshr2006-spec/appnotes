@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="overlay show" role="dialog">
+    <div class="modal" tabindex="0">
+      <h2>Welcome to Notes App</h2>
+      <p>Please enter your name or email:</p>
+      <input 
+        type="text" 
+        id="usernameInput" 
+        placeholder="Your name or email" 
+        aria-label="User name or email" 
+        tabindex="0"
+      />
+      <button id="loginBtn" aria-label="Login button" tabindex="0">Login</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <h1 class="brand">Notes App</h1>
+    <div class="header-controls">
+      <span id="userDisplay"></span>
+      <input 
+        id="searchBar" 
+        type="search" 
+        placeholder="Search notes..." 
+        aria-label="Search notes" 
+        tabindex="0"
+      />
+      <select id="sortSelect" aria-label="Sort notes" tabindex="0">
+        <option value="modified-desc">Modified (new → old)</option>
+        <option value="modified-asc">Modified (old → new)</option>
+        <option value="alpha">Alphabetical</option>
+      </select>
+      <button id="toggleThemeBtn" aria-label="Toggle dark or light mode" tabindex="0">🌓</button>
+    </div>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main class="main">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <div class="category-controls">
+        <input 
+          type="text" 
+          id="newCategoryInput" 
+          placeholder="New category" 
+          aria-label="New category input" 
+          tabindex="0"
+        />
+        <button id="addCategoryBtn" aria-label="Add category button" tabindex="0">Add</button>
+      </div>
+      <div id="categoryList"></div>
+      <button id="clearNotesBtn" aria-label="Clear all notes" tabindex="0">Clear All Notes</button>
+    </aside>
+
+    <!-- NOTES AREA -->
+    <section class="notes-area">
+      <div class="notes-section">
+        <h3>Pinned</h3>
+        <div id="pinnedNotes" class="notes-list"></div>
+      </div>
+
+      <div class="notes-section">
+        <h3>Notes</h3>
+        <div id="notesList" class="notes-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- NOTE EDITOR -->
+  <div id="editor" class="overlay" role="dialog">
+    <div class="edit-modal" tabindex="0">
+      <input id="noteTitle" type="text" placeholder="Title" aria-label="Note title" tabindex="0" />
+      <textarea id="noteContent" rows="6" placeholder="Write your note..." aria-label="Note content" tabindex="0"></textarea>
+      <div class="edit-controls">
+        <input type="color" id="noteColor" aria-label="Choose note color" tabindex="0" />
+        <input type="file" id="noteImage" accept="image/*" aria-label="Add background image" tabindex="0" />
+        <button id="saveNoteBtn" aria-label="Save note" tabindex="0">Save</button>
+        <button id="deleteNoteBtn" aria-label="Delete note" tabindex="0">Delete</button>
+        <button id="closeEditorBtn" aria-label="Close editor" tabindex="0">Close</button>
+      </div>
+      <div class="note-dates">
+        <span id="createdAt"></span><br />
+        <span id="updatedAt"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

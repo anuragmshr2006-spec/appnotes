@@ -1,0 +1,133 @@
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --header-bg: #0078d7;
+  --note-bg: #fff;
+  --note-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --header-bg: #1e1e1e;
+  --note-bg: #1e1e1e;
+  --note-shadow: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg);
+  color: white;
+  padding: 10px 20px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background: var(--note-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--note-shadow);
+}
+
+.notes-area {
+  flex: 1;
+}
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.note {
+  width: 220px;
+  background: var(--note-bg);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px var(--note-shadow);
+  cursor: pointer;
+  transition: transform 0.2s;
+  word-wrap: break-word;
+}
+
+.note:hover {
+  transform: scale(1.03);
+}
+
+.pin-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal, .edit-modal {
+  background: var(--note-bg);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px var(--note-shadow);
+}
+
+.edit-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+input, textarea, select, button {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  background: var(--header-bg);
+  color: white;
+  border: none;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #005bb5;
+}
